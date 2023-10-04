@@ -9,7 +9,8 @@ if memo_type == 1
  file_name = gets.to_s.chomp
   puts "メモの内容を入力してください。Ctrl+Dで保存してください。"
   
-  memo = STDIN.gets.to_s.chomp
+  imput_memo = STDIN.read
+  memo = imput_memo.chomp
   CSV.open("#{file_name}.csv" , "w") do |csv|
     csv.puts ["#{memo}"]
   end
