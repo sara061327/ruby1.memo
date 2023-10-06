@@ -18,15 +18,15 @@ if memo_type == 1
 elsif memo_type == 2
   puts "既存のメモを編集します。拡張子を除いた既存ファイル名を入力してください。"
   
-  file_name = gets.to_s
-  puts "#{file_name}.csv"
-  
- memo = readlines.chomp.to_s
-   
- CSV.open("{file_name}.csv" , "a") do |csv|
- csv.puts ["#{memo}"]
- end
-  
+ file_name = gets.to_s.chomp
+   puts "メモの内容を入力してください。Ctrl+Dで保存してください。"
+ 
+  imput_memo = STDIN.read
+  memo = imput_memo.chomp
+  CSV.open("#{file_name}.csv" , "a") do |csv|
+    csv.puts ["#{memo}"]
+  end
+
 else
   puts"1か2の数字を入力してください"
 end
